@@ -6,8 +6,8 @@ La seguente bibliografia raccoglie le principali risorse accademiche, tecniche e
 - [OPTICS Clustering - ML] https://www.geeksforgeeks.org/machine-learning/ml-optics-clustering/
 - [Clustering Algorithms: DBSCAN vs. OPTICS] https://www.atlantbh.com/clustering-algorithms-dbscan-vs-optics/
 - [Clustering] https://scikit-learn.org/stable/modules/clustering.html#
+- [Cos'è il clustering?] https://www.ibm.com/it-it/think/topics/clustering
   
-
 ## Video
 - [MACHINE LEARNING: CLUSTERING - OPTICS] https://www.youtube.com/watch?v=OpfVFL7FXj4
   
