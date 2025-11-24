@@ -22,12 +22,14 @@ Gli algoritmi di clustering si dividono principalmente in tre categorie:
 * **Basati sulla densità** (*es. DBSCAN, OPTICS*) –-> definiscono cluster come regioni di alta densità separate da zone di bassa densità.
 * **Basati su modelli o gerarchie** (*es. Agglomerative Clustering, Gaussian Mixture*) –-> costruiscono cluster seguendo strutture gerarchiche o probabilistiche. 
 
+---
 
 ### 🗂️ **Perché utilizzare algoritmi basati sulla densità?**
 
 Mentre metodi come K-Means funzionano bene con cluster “sferici” e di dimensioni simili, molti dataset reali presentano cluster di forma irregolare e densità variabile.
 Gli algoritmi basati sulla densità, come DBSCAN e OPTICS, superano queste limitazioni: identificano cluster di forma arbitraria e distinguono chiaramente tra punti rumorosi e cluster significativi.
 
+---
 
 ### 🗂️ **OPTICS: Clustering basato sulla densità**
 
@@ -86,6 +88,109 @@ Questo tipo di rappresentazione è estremamente utile perché permette di osserv
 
 È un livello di dettaglio che DBSCAN non può offrire, proprio perché OPTICS non si limita a “tagliare” i cluster con un singolo valore di eps, ma lascia emergere la loro struttura direttamente dal grafico.
 
+---
+
+### 🗂️ **Funzionamento dell’algoritmo**
+
+Il processo con cui OPTICS analizza un dataset può essere immaginato come una sorta di *esplorazione guidata* dello spazio dei punti, dove l’algoritmo visita ogni punto seguendo un ordine che riflette la densità dell’area in cui si trova. Questo permette di ottenere una visione molto accurata della struttura dei cluster.
+
+#### **1. SELEZIONE DEL PUNTO INIZIALE**
+
+L’algoritmo comincia scegliendo un punto qualsiasi che non sia ancora stato visitato. Una volta selezionato, calcola quanti altri punti si trovano entro un certo raggio massimo, chiamato **Eps**.
+Questi punti vicini costituiranno la base per valutare quanto è densa la regione attorno al punto.
 
 
+#### **2. VERIFICA DELLA DENSITA'**
+
+A questo punto OPTICS controlla quanti vicini ha il punto selezionato:
+
+* se il numero di punti vicini è **almeno MinPts**, allora siamo in una zona densa, e il punto viene classificato come **core point**;
+* se invece i vicini sono troppo pochi, il punto non è abbastanza immerso nella densità e quindi viene considerato **non-core**.
+
+È importante notare che un punto non-core può comunque far parte di un cluster, ma **non è in grado di espandere un cluster da solo**.
+
+#### **3. CALCOLO DELLA REACHABILITY DISTANCE**
+
+Se il punto è un core point, OPTICS procede a valutare la “raggiungibilità” dei suoi vicini.
+Per ogni vicino non ancora visitato si calcola la **reachability distance**, che indica quanto è facile raggiungerlo dal punto corrente.
+
+Più la reachability distance è bassa, più quel vicino si trova in un'area densa e quindi più è probabile che appartenga a un cluster.
+
+Tutti questi vicini vengono inseriti in una struttura dati chiamata **priority queue**, che li ordina automaticamente dal più “raggiungibile” al meno raggiungibile.
+In questo modo OPTICS ha sempre a disposizione il prossimo punto più naturale da visitare.
+
+#### **4. ORDINE DEI PUNTI**
+
+L’algoritmo continua quindi prelevando dalla coda il punto con la reachability distance più bassa e lo elabora.
+Questo processo si ripete fino a quando non sono stati visitati tutti i punti del dataset.
+
+La sequenza di visita generata in questo modo è fondamentale: costituisce infatti l’**ordine di raggiungibilità**, ovvero la base per costruire il reachability plot.
+
+#### **5. IDENTIFICAZIONE DI CLUSTER E RUMORE**
+
+Terminata l’analisi, OPTICS rappresenta graficamente la reachability distance dei punti secondo l’ordine in cui sono stati visitati.
+
+Nel **reachability plot**:
+
+* le **vallate** indicano regioni di bassa distanza di raggiungibilità, quindi aree dense → *cluster*;
+* i **picchi** rappresentano improvvisi aumenti della distanza, tipici delle zone poco dense → *rumore o punti isolati*.
+
+Ciò che rende OPTICS così potente è che questa rappresentazione permette di “leggere” la struttura dei cluster **a densità variabile**, e di individuare cluster a diversi livelli di dettaglio **senza dover fissare un valore unico di epsilon**, come avviene invece in DBSCAN.
+
+---
+
+### 🗂️ **Confronto tra DBSCAN e OPTICS**
+
+Per comprendere appieno le potenzialità di OPTICS, è utile metterlo a confronto con l’algoritmo da cui deriva: DBSCAN. Sebbene entrambi appartengano alla famiglia dei metodi basati sulla densità, differiscono per capacità, flessibilità e tipo di risultati prodotti. La tabella seguente mette in evidenza le principali differenze, evidenziando i punti di forza e i limiti di ciascun algoritmo.
+
+**Caratteristica** --> Gestione densità variabili  
+**DBSCAN** --> Richiede epsilon unico  
+**OPTICS** --> Cluster di densità diversa identificabili    
+
+**Caratteristica** --> Identificazione cluster  
+**DBSCAN** --> Assegna cluster direttamente senza gerarchia  
+**OPTICS** --> Usa reachability plot, supporta struttura gerarchica  
+
+**Caratteristica** --> Struttura gerarchica  
+**DBSCAN** --> Non supportata  
+**OPTICS** --> Supporta cluster annidati    
+
+**Caratteristica** --> Complessità computazionale    
+**DBSCAN** --> Minore  
+**OPTICS** --> Più alta per ordinamento e calcolo reachability    
+
+**Caratteristica** --> Uso memoria  
+**DBSCAN** --> Minore  
+**OPTICS** --> Più elevato (mantiene una coda prioritaria)  
+
+**Caratteristica** --> Parametri  
+**DBSCAN** --> Richiede tuning accurato di epsilon e MinPts  
+**OPTICS** --> Ridotta sensibilità a epsilon  
+
+**Caratteristica** --> Rumore    
+**DBSCAN** --> Identificato direttamente    
+**OPTICS** --> Rappresentato dai picchi nel reachability plot    
+
+---
+
+### 🗂️ **Applicazioni pratiche**
+
+OPTICS è particolarmente utile in scenari dove i cluster hanno densità differente o forme complesse:
+
+* **Segmentazione clienti** --> raggruppamento di clienti in base a comportamento o preferenze.
+* **Elaborazione immagini** --> identificazione di regioni di interesse o segmentazione oggetti.
+* **Analisi documenti** --> raggruppamento di testi simili.
+* **Scienze ambientali** --> individuazione di pattern spaziali in dati geografici.
+
+---
+
+### 🗂️ **Conclusioni**
+
+L’algoritmo OPTICS rappresenta uno strumento potente per l’analisi dei dati complessi grazie alla sua capacità di:
+
+* Gestire cluster con densità variabili.
+* Offrire una rappresentazione gerarchica e flessibile dei cluster tramite reachability plot.
+* Supportare applicazioni multidisciplinari, dall’analisi commerciale alla segmentazione di immagini.
+
+Nonostante una maggiore complessità computazionale rispetto a DBSCAN, OPTICS fornisce una visione più dettagliata della struttura dei dati, rendendolo ideale per dataset complessi e ricchi di pattern nascosti.
 
