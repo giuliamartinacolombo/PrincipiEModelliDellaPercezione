@@ -150,7 +150,9 @@ Nel **reachability plot**:
 * le **vallate** indicano regioni di bassa distanza di raggiungibilità, quindi aree dense → *cluster*;
 * i **picchi** rappresentano improvvisi aumenti della distanza, tipici delle zone poco dense → *rumore o punti isolati*.
 
-Ciò che rende OPTICS così potente è che questa rappresentazione permette di “leggere” la struttura dei cluster **a densità variabile**, e di individuare cluster a diversi livelli di dettaglio **senza dover fissare un valore unico di epsilon**, come avviene invece in DBSCAN.
+L'individuazione dei **border points** permette inoltre di modellare una transizione naturale fra diversi gruppi di dati, per fare sì che i cluster non siano separati artificialmente.
+
+Ciò che rende OPTICS così potente è che questa rappresentazione permette di “leggere” la struttura dei cluster **a densità variabile**, e di individuare cluster a diversi livelli di dettaglio **senza dover fissare un valore unico di epsilon**, come avviene invece in DBSCAN. 
 
 ---
 
@@ -184,7 +186,11 @@ Per comprendere appieno le potenzialità di OPTICS, è utile metterlo a confront
 
 **Caratteristica** --> Rumore    
 **DBSCAN** --> Identificato direttamente    
-**OPTICS** --> Rappresentato dai picchi nel reachability plot    
+**OPTICS** --> Rappresentato dai picchi nel reachability plot 
+
+**Caratteristica** --> Scalabilità    
+**DBSCAN** --> Moderata, potrebbe fare fatica con dati di molte dimensioni   
+**OPTICS** --> Poco scalabile su dataset ampi in quanto intesno dal punto di vista computazionale per via dei molteplici calcoli di distanze
 
 ---
 
