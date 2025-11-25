@@ -10,6 +10,7 @@ La seguente bibliografia raccoglie le principali risorse accademiche, tecniche e
   
 ## Video
 - [MACHINE LEARNING: CLUSTERING - OPTICS] https://www.youtube.com/watch?v=OpfVFL7FXj4
+- [Introduzione al clustering] https://www.youtube.com/watch?v=XYmvk-uq1zk
   
 
 
