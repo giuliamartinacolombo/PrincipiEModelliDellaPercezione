@@ -35,6 +35,10 @@ Gli algoritmi basati sulla densità, come DBSCAN e OPTICS, superano queste limit
 
 OPTICS (Ordering Points To Identify the Clustering Structure) è un algoritmo avanzato di clustering basato sulla densità, nato per superare i limiti di DBSCAN quando i cluster hanno densità diversa o forme complesse. A differenza di DBSCAN, non assegna subito etichette ai cluster, ma costruisce una rappresentazione ordinata dei punti chiamata reachability plot, che permette di identificare cluster e rumore in modo visivo e gerarchico.
 
+Si tratta di un algoritmo di fatto considerato superiore ad algoritmi come K-Means e il sopra citato DBSCAN per due motivi di rilievo:
+* Non necessita, contrariamente a K-Means, di definire a priori il numero di cluster, in quanto li identifica automaticamente in ordine di densità.
+* Lavora su densità variabili di dati, contrariamente a K-Means che assume a priori che i cluster abbiano densità e forme simili, e DBSCAN che tende a fare fatica se i cluster hanno densità variabili.
+
 **CONCETTI CHIAVE**
 
 #### **Core Distance**
@@ -71,13 +75,13 @@ Man mano che ci spostiamo verso il bordo del cluster, o verso zone più vuote, l
 
 #### **Reachability Plot**
 
-Il *reachability plot* è uno degli elementi più caratteristici e potenti di OPTICS.
+Il *reachability plot* è uno degli elementi più caratteristici e potenti di OPTICS, in grado di elevarlo rispetto agli altri algoritmi dello stesso tipo.
 Si tratta di un grafico dove i punti non vengono semplicemente mostrati nello spazio originale, ma **ordinati secondo la sequenza con cui l’algoritmo li visita**, e rappresentati in base alla loro reachability distance.
 
 Visualmente, il grafico funziona così:
 
-* **Le “vallate”** indicano regioni a bassa reachability distance, quindi zone dense → corrispondono ai cluster.
-* **I “picchi”** rappresentano punti con alta reachability distance → spesso rumore o transizioni tra cluster.
+* **Le “vallate”** (o local minima) indicano regioni a bassa reachability distance, quindi zone dense → corrispondono ai cluster.
+* **I “picchi”** (o local maxima) rappresentano punti con alta reachability distance → spesso rumore o transizioni tra cluster.
 
 Questo tipo di rappresentazione è estremamente utile perché permette di osservare:
 
