@@ -51,7 +51,7 @@ I *border points* si trovano ai margni di un cluster: non hanno abbastanza vicin
 
 #### **Noise Points**
 
-I cosiddetti *noise points* stanno invece fuori dai cluster in quanto non hanno abbastanza vicini per essere definiti core points, e non rientrano nel "vicinato" di nessuno di essi. Per questo sono considerati *outlier/anomalie* e spesso corrispondono a dati irregolari o molto dispersi che non si inseriscono in nessun cluster. Riconoscerli è importante per valutare la qualità dei dati e filtrare le informazioni irrilevanti o inaccurate.
+I cosiddetti *noise points* stanno invece fuori dai cluster in quanto non hanno abbastanza vicini per essere definiti core points, e non rientrano nel "vicinato" di nessuno di essi. Per questo sono considerati **outlier/anomalie** e spesso corrispondono a dati irregolari o molto dispersi che non si inseriscono in nessun cluster. Riconoscerli è importante per valutare la qualità dei dati e filtrare le informazioni irrilevanti o inaccurate.
 
 #### **Core Distance**
 
