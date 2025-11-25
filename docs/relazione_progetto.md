@@ -190,7 +190,7 @@ Per comprendere appieno le potenzialità di OPTICS, è utile metterlo a confront
 
 **Caratteristica** --> Scalabilità    
 **DBSCAN** --> Moderata, potrebbe fare fatica con dati di molte dimensioni   
-**OPTICS** --> Poco scalabile su dataset ampi in quanto intesno dal punto di vista computazionale per via dei molteplici calcoli di distanze
+**OPTICS** --> Poco scalabile su dataset ampi in quanto complesso dal punto di vista computazionale per via dei molteplici calcoli di distanze
 
 ---
 
@@ -198,10 +198,11 @@ Per comprendere appieno le potenzialità di OPTICS, è utile metterlo a confront
 
 OPTICS è particolarmente utile in scenari dove i cluster hanno densità differente o forme complesse:
 
-* **Segmentazione clienti** --> raggruppamento di clienti in base a comportamento o preferenze.
-* **Elaborazione immagini** --> identificazione di regioni di interesse o segmentazione oggetti.
+* **Segmentazione clienti** --> raggruppamento di clienti in base a comportamento, preferenze, aspetti demografici nei contesti di e-commerce e retail. In questo modo è possibile nel pratico creare delle raccomandazioni su misura per ogni cliente o gruppo.
+* **Individuazione di anomalie in sistemi di rilevazione di frodi** --> Per sistemi che devono identificare transazioni fraudolente è utile perchè riesce ad evidenziare pettern sospetti che si discostano dal comportamento "normale". In un contesto bancario, ad esempio, può rivelare transazioni anomale individuando cluster inusuali o punti isolati sulla base di informazioni come importo, localizzazione e momento dell'operazione.
+* **Dati geospaziali** --> la sua nota flessibilità permette un'analisi più accurata delle relazioni spaziali in ambiti come urban planning, scelta delle location per il retail e studi ambientali. Ad esempio, è molto utile nel *real estate* per analizzare la richiesta di alloggi in diverse zone, oppure per agenzie ambientali che vogliono individuare cluster basati sui livelli di inquinamento in un'area geografica.
 * **Analisi documenti** --> raggruppamento di testi simili.
-* **Scienze ambientali** --> individuazione di pattern spaziali in dati geografici.
+* **Elaborazione immagini** --> identificazione di regioni di interesse o segmentazione oggetti.
 
 ---
 
