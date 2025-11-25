@@ -79,9 +79,9 @@ In formula:
 
 <p align="center"><strong><em>reachability(p, q)=\max(core_distance(p),distance(p,q))</em></strong></p>
 
-Cosa significa in pratica?
+*Cosa significa in pratica?
 Se ci muoviamo all’interno di un cluster ben definito, i punti saranno tutti relativamente vicini e circondati da altri punti → la reachability distance rimane bassa.
-Man mano che ci spostiamo verso il bordo del cluster, o verso zone più vuote, le distanze aumentano → la reachability cresce e segnala un cambio di densità.
+Man mano che ci spostiamo verso il bordo del cluster, o verso zone più vuote, le distanze aumentano → la reachability cresce e segnala un cambio di densità.*
 
 È proprio questa variazione che permette a OPTICS di distinguere zone dense (cluster) da punti isolati o rumore.
 
@@ -89,11 +89,10 @@ Man mano che ci spostiamo verso il bordo del cluster, o verso zone più vuote, l
 
 Il *reachability plot* è uno degli elementi più caratteristici e potenti di OPTICS, in grado di elevarlo rispetto agli altri algoritmi dello stesso tipo.
 Si tratta di un grafico dove i punti non vengono semplicemente mostrati nello spazio originale, ma **ordinati secondo la sequenza con cui l’algoritmo li visita**, e rappresentati in base alla loro reachability distance.
-
 Visualmente, il grafico funziona così:
 
-* **Le “vallate”** (o local minima) indicano regioni a bassa reachability distance, quindi zone dense → corrispondono ai cluster.
-* **I “picchi”** (o local maxima) rappresentano punti con alta reachability distance → spesso rumore o transizioni tra cluster.
+* **Le “vallate”** (o local minima) indicano regioni a bassa reachability distance, quindi zone dense → corrispondono ai cluster. I drop significativi segnano l'ingresso in una zona densa e i minimi locali ne rappresentano il "cuore".
+* **I “picchi”** (o local maxima) rappresentano punti con alta reachability distance → spesso indicano rumore, outlier, o transizioni tra cluster, cioè i confini tra una regione densa e l'altra.
 
 Questo tipo di rappresentazione è estremamente utile perché permette di osservare:
 
