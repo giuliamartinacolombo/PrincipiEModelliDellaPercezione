@@ -41,6 +41,18 @@ Si tratta di un algoritmo di fatto considerato superiore ad algoritmi come K-Mea
 
 **CONCETTI CHIAVE**
 
+#### **Core Points**
+
+I *core points* sono quei data point che costituiscono la base su cui si costruiscono i cluster. Hanno un numero sufficiente di punti vicini  (almeno MinPts in uno specifico raggio), che costituiscono dunque una regione densa. Sono quindi fondamentali per definire dove un cluster ha inizio e come si estende in modo continuo.
+
+#### **Border Points**
+
+I *border points* si trovano ai margni di un cluster: non hanno abbastanza vicini per essere considerabili core points, ma rientrano nel "vicinato" di uno o più core points. Per questo vengono assegnati ai cluster, pur trovandosi nelle zone meno dense, e contribuiscono a delinearne il bordo.
+
+#### **Noise Points**
+
+I cosiddetti *noise points* stanno invece fuori dai cluster in quanto non hanno abbastanza vicini per essere definiti core points, e non rientrano nel "vicinato" di nessuno di essi. Per questo sono considerati *outlier/anomalie* e spesso corrispondono a dati irregolari o molto dispersi che non si inseriscono in nessun cluster. Riconoscerli è importante per valutare la qualità dei dati e filtrare le informazioni irrilevanti o inaccurate.
+
 #### **Core Distance**
 
 La *core distance* rappresenta una misura fondamentale per capire se un punto può essere considerato parte del “cuore” di un cluster.
