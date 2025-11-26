@@ -10,6 +10,20 @@
 
 Il **clustering** è una tecnica di *machine learning non supervisionato* che mira a raggruppare dati simili tra loro, senza l’uso di etichette predefinite. In altre parole, l’algoritmo cerca di suddividere un insieme di punti in “gruppi” (cluster) tali che gli elementi all’interno di ciascun gruppo siano più simili tra loro rispetto a quelli appartenenti a gruppi differenti. Il **clustering** è ampiamente utilizzato in ambito commerciale, scientifico e tecnologico, ad esempio per segmentare clienti, raggruppare documenti simili, identificare pattern spaziali o analizzare immagini.
 
+<span><em>[Nel machine learning, esistono due grandi categorie di algoritmi:
+* Apprendimento supervisionato,
+* Apprendimento non supervisionato.
+Nell’apprendimento supervisionato, l’algoritmo impara da un insieme di dati etichettati.
+Significa che per ogni esempio fornito, conosci già la “risposta corretta”.
+Per esempio, se vengono mostrate tante immagini di gatti e cani, ognuna con la sua etichetta (“gatto”, “cane”), l’algoritmo impara a riconoscere da solo la differenza e poi può classificare nuove immagini.
+👉 Qui l’obiettivo è predire un’etichetta nota su nuovi dati.
+ 
+Nel clustering, invece, non abbiamo etichette.
+L’algoritmo riceve solo i dati grezzi — punti, immagini, segnali, ecc. — e deve scoprire da solo se esistono gruppi o strutture nascoste.
+Ad esempio, vengono dati mille punti distribuiti nello spazio, senza dire quali “appartengono insieme”; l’algoritmo di clustering cerca di capire da solo quali punti sono simili o vicini e li raggruppa.
+👉 Qui l’obiettivo non è “predire”, ma capire la struttura interna dei dati, trovare pattern o regolarità.]
+</em></span>
+
 Il clustering offre diversi benefici chiave nell’analisi dei dati, tra cui:
 * **Analisi esplorativa** --> aiuta a scoprire strutture nascoste nei dati, come segmenti di clienti, comunità o gruppi di comportamento.
 * **Riduzione della complessità** --> raggruppare dati simili permette di sintetizzare l’informazione e facilitare ulteriori analisi.
