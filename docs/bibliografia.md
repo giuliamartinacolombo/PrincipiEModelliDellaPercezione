@@ -3,6 +3,7 @@ La seguente bibliografia raccoglie le principali risorse accademiche, tecniche e
 
 ## Risorse online
 - [Understanding OPTICS Clustering in Machine Learning] https://www.upgrad.com/tutorials/ai-ml/machine-learning-tutorial/optics-clustering-in-machine-learning/
+- [Understanding Clustering in Machine Learning Algorithms] https://www.upgrad.com/blog/clustering-in-machine-learning/
 - [OPTICS Clustering - ML] https://www.geeksforgeeks.org/machine-learning/ml-optics-clustering/
 - [Clustering Algorithms: DBSCAN vs. OPTICS] https://www.atlantbh.com/clustering-algorithms-dbscan-vs-optics/
 - [Clustering] https://scikit-learn.org/stable/modules/clustering.html#
