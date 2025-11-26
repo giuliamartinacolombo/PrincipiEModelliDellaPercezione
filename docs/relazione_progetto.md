@@ -210,9 +210,16 @@ OPTICS è particolarmente utile in scenari dove i cluster hanno densità differe
 
 L’algoritmo OPTICS rappresenta uno strumento potente per l’analisi dei dati complessi grazie alla sua capacità di:
 
-* Gestire cluster con densità variabili.
-* Offrire una rappresentazione gerarchica e flessibile dei cluster tramite reachability plot.
+* Gestire cluster con densità variabili e di forma arbitraria, fornendo flessibilità ben oltre ad algoritmi come K-Means.
+* Offrire una rappresentazione gerarchica e flessibile dei cluster tramite reachability plot, fornendo un supporto in termini di interpretabilità e decisione.
 * Supportare applicazioni multidisciplinari, dall’analisi commerciale alla segmentazione di immagini.
+* Individuare il rumore e gli outliers distinguendo regioni sparse da cluster densi, migliorando di fatto la rilevanza dei pattern.
+
+Ha però anche delle limitazioni, che vanno tenute in considerazione quando si decide se utilizzarlo:
+
+* È computazionalmente pesante sui dataset molto grandi, perchè richiede molti calcoli di distanza ripetuti; questo può limitarne la scalabilità e l'uso in scenari real-time.
+* È sensibile alla scelta dei parametri e della metrica di distanza: selezionare valori e misure adeguate è cruciale per ottenere risultati significativi.
+* Le prestazioni peggiorano con dati ad alta dimensionalità, utili per migliorare sia l'efficienza sia l'acuratezza dell'analisi.
 
 Nonostante una maggiore complessità computazionale rispetto a DBSCAN, OPTICS fornisce una visione più dettagliata della struttura dei dati, rendendolo ideale per dataset complessi e ricchi di pattern nascosti.
 
