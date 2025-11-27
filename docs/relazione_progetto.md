@@ -93,6 +93,8 @@ Si calcola prendendo il massimo tra:
 * la core distance del punto di partenza (che descrive quanto è denso l’ambiente locale),
 * la distanza effettiva tra i due punti.
 
+In questo modo si tiene conto sia della densità locale sia della distanza effettiva.
+
 In formula:
 
 <p align="center"><strong><em>reachability(p, q)=\max(core_distance(p),distance(p,q))</em></strong></p>
@@ -127,51 +129,30 @@ Questo tipo di rappresentazione è estremamente utile perché permette di osserv
 
 Il processo con cui OPTICS analizza un dataset può essere immaginato come una sorta di *esplorazione guidata* dello spazio dei punti, dove l’algoritmo visita ogni punto seguendo un ordine che riflette la densità dell’area in cui si trova. Questo permette di ottenere una visione molto accurata della struttura dei cluster.
 
-#### **1. SELEZIONE DEL PUNTO INIZIALE**
+#### **1. IDENTIFICARE I CORE POINTS**
 
-L’algoritmo comincia scegliendo un punto qualsiasi che non sia ancora stato visitato. Una volta selezionato, calcola quanti altri punti si trovano entro un certo raggio massimo, chiamato **Eps**.
-Questi punti vicini costituiranno la base per valutare quanto è densa la regione attorno al punto.
+In questa fase l’algoritmo identifica i core points, cioè quei punti che hanno abbastanza vicini entro un certo raggio, definito dai parametri epsilon e minPts. Questi punti rappresentano il nucleo dei possibili cluster: quando un punto soddisfa le condizioni per essere core, tutti i punti nel suo intorno vengono considerati parte dello stesso gruppo. L’algoritmo quindi individua i punti direttamente raggiungibili dai core point, che sono gli unici da cui può iniziare la formazione effettiva di un cluster.
 
+#### **2. DEFINIRE LE REACHABILITY DISTANCES**
 
-#### **2. VERIFICA DELLA DENSITA'**
+In questa fase si calcola la reachability distance, che misura quanto un punto è “raggiungibile” da un altro. Questa distanza viene definita confrontando la core distance del punto di riferimento con la distanza reale tra i due punti, prendendo il valore più grande. In questo modo si tiene conto sia della densità locale sia della distanza effettiva. Il risultato serve a costruire il reachability plot: valori bassi indicano aree dense e ben definite, mentre valori alti segnalano bordi di cluster o punti isolati.
 
-A questo punto OPTICS controlla quanti vicini ha il punto selezionato:
+#### **3. SCOPRIRE I BORDER POINTS**
 
-* se il numero di punti vicini è **almeno MinPts**, allora siamo in una zona densa, e il punto viene classificato come **core point**;
-* se invece i vicini sono troppo pochi, il punto non è abbastanza immerso nella densità e quindi viene considerato **non-core**.
+In questa fase l’algoritmo identifica i punti di bordo, ovvero quei punti che si trovano nel raggio di un core point ma non hanno abbastanza vicini per essere considerati core. Anche se non rappresentano il centro del cluster, ne fanno comunque parte e ne ampliano la forma, creando una continuità naturale tra diverse zone dei dati. I punti di bordo contribuiscono alla densità del cluster e servono a evitare che gruppi di punti vengano separati in modo artificiale.
 
-È importante notare che un punto non-core può comunque far parte di un cluster, ma **non è in grado di espandere un cluster da solo**.
+#### **4. CLASSIFICARE I NOISE POINTS**
 
-#### **3. CALCOLO DELLA REACHABILITY DISTANCE**
+In questo passo vengono identificati i punti rumore, cioè quei punti che non soddisfano i requisiti per essere né core né punti di bordo. Non hanno abbastanza vicini entro il raggio epsilon e per questo sono considerati outlier. Nel reachability plot compaiono come punti isolati con distanze elevate, segnalando che non appartengono a nessun cluster significativo. In pratica, rappresentano valori rari o poco rilevanti rispetto alla struttura principale dei dati e vengono esclusi dai cluster finali.
 
-Se il punto è un core point, OPTICS procede a valutare la “raggiungibilità” dei suoi vicini.
-Per ogni vicino non ancora visitato si calcola la **reachability distance**, che indica quanto è facile raggiungerlo dal punto corrente.
+#### **5. COSTRUZIONE DEL REACHABILITY PLOT**
 
-Più la reachability distance è bassa, più quel vicino si trova in un'area densa e quindi più è probabile che appartenga a un cluster.
-
-Tutti questi vicini vengono inseriti in una struttura dati chiamata **priority queue**, che li ordina automaticamente dal più “raggiungibile” al meno raggiungibile.
-In questo modo OPTICS ha sempre a disposizione il prossimo punto più naturale da visitare.
-
-#### **4. ORDINE DEI PUNTI**
-
-L’algoritmo continua quindi prelevando dalla coda il punto con la reachability distance più bassa e lo elabora.
-Questo processo si ripete fino a quando non sono stati visitati tutti i punti del dataset.
-
-La sequenza di visita generata in questo modo è fondamentale: costituisce infatti l’**ordine di raggiungibilità**, ovvero la base per costruire il reachability plot.
-
-#### **5. IDENTIFICAZIONE DI CLUSTER E RUMORE**
-
-Terminata l’analisi, OPTICS rappresenta graficamente la reachability distance dei punti secondo l’ordine in cui sono stati visitati.
-
-Nel **reachability plot**:
+In questa fase viene costruito il reachability plot, ovvero il grafico che rappresenta ogni punto in base alla sua reachability distance. Questo grafico permette di visualizzare la struttura dei cluster:
 
 * le **vallate** indicano regioni di bassa distanza di raggiungibilità, quindi aree dense → *cluster*;
 * i **picchi** rappresentano improvvisi aumenti della distanza, tipici delle zone poco dense → *rumore o punti isolati*.
 
-L'individuazione dei **border points** permette inoltre di modellare una transizione naturale fra diversi gruppi di dati, per fare sì che i cluster non siano separati artificialmente.
-
-Ciò che rende OPTICS così potente è che questa rappresentazione permette di “leggere” la struttura dei cluster **a densità variabile**, e di individuare cluster a diversi livelli di dettaglio **senza dover fissare un valore unico di epsilon**, come avviene invece in DBSCAN. 
-
+Analizzando la forma del plot è possibile individuare facilmente i cluster e anche la loro gerarchia, scegliendo una soglia di reachability a cui “tagliare” il grafico. Questa flessibilità rende OPTICS molto utile quando non si conosce in anticipo il numero di cluster presenti nei dati.
 ---
 
 ### 🗂️ **Confronto tra DBSCAN e OPTICS**
