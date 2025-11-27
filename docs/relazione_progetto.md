@@ -50,8 +50,12 @@ Gli algoritmi basati sulla densità, come DBSCAN e OPTICS, superano queste limit
 OPTICS (Ordering Points To Identify the Clustering Structure) è un algoritmo avanzato di clustering basato sulla densità, nato per superare i limiti di DBSCAN quando i cluster hanno densità diversa o forme complesse. A differenza di DBSCAN, non assegna subito etichette ai cluster, ma costruisce una rappresentazione ordinata dei punti chiamata reachability plot, che permette di identificare cluster e rumore in modo visivo e gerarchico.
 
 Si tratta di un algoritmo di fatto considerato superiore ad algoritmi come K-Means e il sopra citato DBSCAN per due motivi di rilievo:
-* Non necessita, contrariamente a K-Means, di definire a priori il numero di cluster, in quanto li identifica automaticamente in ordine di densità.
-* Lavora su densità variabili di dati, contrariamente a K-Means che assume a priori che i cluster abbiano densità e forme simili, e DBSCAN che tende a fare fatica se i cluster hanno densità variabili.
+* Non necessita, contrariamente a K-Means, di definire a priori il numero di cluster, in quanto li identifica automaticamente in ordine di densità. Questo è utile quando il numero effettivo di cluster nei dati non è noto.
+* Lavora su densità variabili di dati, contrariamente a K-Means che assume a priori che i cluster abbiano densità e forme simili, e DBSCAN che tende a fare fatica se i cluster hanno densità variabili. Essendo progettato per rilevare cluster di densità diverse, è adatto a set di dati reali in cui i cluster potrebbero non essere distribuiti uniformemente.
+
+Inoltre, OPTICS genera grafici di raggiungibilità, che mostrano visivamente le relazioni basate sulla densità tra i punti dati. Questi grafici forniscono informazioni sulla struttura dei cluster, facilitando la comprensione di come i punti dati vengono raggruppati in base alla loro densità.
+
+OPTICS viene considerato complesso nella gestione dei dati perché, mentre lavora, deve mantenere e aggiornare molte informazioni per ogni punto. Per costruire la struttura dei cluster non si limita a raggruppare i dati, ma deve calcolare distanze, cercare vicini usando strutture dati efficienti e gestire una coda di priorità che ordina continuamente i punti da analizzare. Tutto questo richiede molte operazioni e una gestione articolata delle strutture interne, rendendo l’algoritmo più complesso rispetto a metodi di clustering più semplici.
 
 **CONCETTI CHIAVE**
 
