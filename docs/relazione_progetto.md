@@ -153,6 +153,7 @@ In questa fase viene costruito il reachability plot, ovvero il grafico che rappr
 * i **picchi** rappresentano improvvisi aumenti della distanza, tipici delle zone poco dense → *rumore o punti isolati*.
 
 Analizzando la forma del plot è possibile individuare facilmente i cluster e anche la loro gerarchia, scegliendo una soglia di reachability a cui “tagliare” il grafico. Questa flessibilità rende OPTICS molto utile quando non si conosce in anticipo il numero di cluster presenti nei dati.
+
 ---
 
 ### 🗂️ **Confronto tra DBSCAN e OPTICS**
