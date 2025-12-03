@@ -65,7 +65,7 @@ I *core points* sono quei data point che costituiscono la base su cui si costrui
 
 #### **Border Points**
 
-I *border points* si trovano ai margni di un cluster: non hanno abbastanza vicini per essere considerabili core points, ma rientrano nel "vicinato" di uno o più core points. Per questo vengono assegnati ai cluster, pur trovandosi nelle zone meno dense, e contribuiscono a delinearne il bordo.
+I *border points* si trovano ai margni di un cluster: non hanno punti abbastanza vicini per essere considerabili core points, ma rientrano nel "vicinato" di uno o più core points. Per questo vengono assegnati ai cluster, pur trovandosi nelle zone meno dense, e contribuiscono a delinearne il bordo. Vengono definiti punti marginali, non rumore.
 
 #### **Noise Points**
 
