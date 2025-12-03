@@ -156,41 +156,39 @@ Analizzando la forma del plot è possibile individuare facilmente i cluster e an
 
 ---
 
-### 🗂️ **Confronto tra DBSCAN e OPTICS**
+### 🗂️ **Confronto tra DBSCAN, OPTICS e K-MEANS**
 
-Per comprendere appieno le potenzialità di OPTICS, è utile metterlo a confronto con l’algoritmo da cui deriva: DBSCAN. Sebbene entrambi appartengano alla famiglia dei metodi basati sulla densità, differiscono per capacità, flessibilità e tipo di risultati prodotti. La tabella seguente mette in evidenza le principali differenze, evidenziando i punti di forza e i limiti di ciascun algoritmo.
+Comprendere come OPTICS si confronta con DBSCAN e K-Means è fondamentale per scegliere l’algoritmo più adatto alle nostre esigenze di clustering. Ecco una panoramica delle loro principali differenze:
 
-**Caratteristica** --> Gestione densità variabili  
+**Caratteristica** --> Numero di cluster predefinito
+**OPTICS** --> No, identifica automaticamente i cluster in base all’ordinamento per densità, senza un numero di cluster prestabilito
 **DBSCAN** --> Richiede epsilon unico  
-**OPTICS** --> Cluster di densità diversa identificabili    
+**K-MEANS** --> No, identifica i cluster in base alla densità, non è richiesto un numero fisso
 
-**Caratteristica** --> Identificazione cluster  
-**DBSCAN** --> Assegna cluster direttamente senza gerarchia  
-**OPTICS** --> Usa reachability plot, supporta struttura gerarchica  
+**Caratteristica** --> Gestione di densità variabili
+**OPTICS** --> Gestisce cluster di densità variabili analizzando le distanze di raggiungibilità
+**DBSCAN** --> Più adatto per cluster con densità simili; ha difficoltà con densità variabili
+**K-MEANS** --> Presuppone che i cluster abbiano densità e forme simili
 
-**Caratteristica** --> Struttura gerarchica  
-**DBSCAN** --> Non supportata  
-**OPTICS** --> Supporta cluster annidati    
+**Caratteristica** --> Rilevamento del rumore e dei valori anomali
+**OPTICS** --> Rileva i valori anomali in base alla raggiungibilità; non è intrinsecamente superiore a DBSCAN, ma offre una visione esplorativa della struttura del cluster
+**DBSCAN** --> Rileva efficacemente i punti di rumore come valori anomali in base alla soglia di densità
+**K-MEANS** --> Sensibile al rumore; tende ad assegnare i valori anomali al cluster più vicino, influenzando l'accuratezza
 
-**Caratteristica** --> Complessità computazionale    
-**DBSCAN** --> Minore  
-**OPTICS** --> Più alta per ordinamento e calcolo reachability    
+**Caratteristica** --> Forma del cluster
+**OPTICS** --> Può identificare gruppi di forma arbitraria
+**DBSCAN** --> Funziona bene per forme irregolari e non convesse
+**K-MEANS** --> Presuppone cluster sferici (convessi)
 
-**Caratteristica** --> Uso memoria  
-**DBSCAN** --> Minore  
-**OPTICS** --> Più elevato (mantiene una coda prioritaria)  
+**Caratteristica** --> Tipo di algoritmo
+**OPTICS** --> Basato sulla densità, si basa sul grafico di raggiungibilità piuttosto che sul vicinato epsilon fisso
+**DBSCAN** --> Basato sulla densità, richiede parametri epsilon e minPts fissi
+**K-MEANS** --> Basato sul centroide, ottimizza la distanza dai centri dei cluster
 
-**Caratteristica** --> Parametri  
-**DBSCAN** --> Richiede tuning accurato di epsilon e MinPts  
-**OPTICS** --> Ridotta sensibilità a epsilon  
-
-**Caratteristica** --> Rumore    
-**DBSCAN** --> Identificato direttamente    
-**OPTICS** --> Rappresentato dai picchi nel reachability plot 
-
-**Caratteristica** --> Scalabilità    
-**DBSCAN** --> Moderata, potrebbe fare fatica con dati di molte dimensioni   
-**OPTICS** --> Poco scalabile su dataset ampi in quanto complesso dal punto di vista computazionale per via dei molteplici calcoli di distanze
+**Caratteristica** --> Scalabilità
+**OPTICS** --> Computazionalmente intensivo a causa dei calcoli di raggiungibilità; può essere più lento su set di dati molto grandi
+**DBSCAN** --> Potrebbe avere difficoltà con dati ad alta dimensionalità; scalabilità moderata
+**K-MEANS** --> Generalmente veloce e ben scalabile in termini di complessità temporale, ma le prestazioni si degradano in dimensioni elevate
 
 ---
 
