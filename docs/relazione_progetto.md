@@ -61,7 +61,7 @@ OPTICS viene considerato complesso nella gestione dei dati perché, mentre lavor
 
 #### **Core Points**
 
-I *core points* sono quei data point che costituiscono la base su cui si costruiscono i cluster. Hanno un numero sufficiente di punti vicini  (almeno MinPts in uno specifico raggio), che costituiscono dunque una regione densa. Sono quindi fondamentali per definire dove un cluster ha inizio e come si estende in modo continuo.
+I *core points* sono quei data point che costituiscono la base su cui si costruiscono i cluster. Hanno un numero sufficiente di punti vicini  (almeno MinPts in uno specifico raggio), che costituiscono dunque una regione densa. Sono quindi fondamentali per definire dove un cluster ha inizio e come si estende in modo continuo. Inoltre permettono di distinguere le parti centrali dai border points.
 
 #### **Border Points**
 
