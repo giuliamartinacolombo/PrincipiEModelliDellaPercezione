@@ -160,35 +160,35 @@ Analizzando la forma del plot è possibile individuare facilmente i cluster e an
 
 Comprendere come OPTICS si confronta con DBSCAN e K-Means è fondamentale per scegliere l’algoritmo più adatto alle nostre esigenze di clustering. Ecco una panoramica delle loro principali differenze:
 
-**Caratteristica** --> Numero di cluster predefinito
-**OPTICS** --> No, identifica automaticamente i cluster in base all’ordinamento per densità, senza un numero di cluster prestabilito
-**DBSCAN** --> Richiede epsilon unico  
-**K-MEANS** --> No, identifica i cluster in base alla densità, non è richiesto un numero fisso
+**Caratteristica** --> Numero di cluster predefinito  
+**OPTICS** --> No, identifica automaticamente i cluster in base all’ordinamento per densità, senza un numero di cluster prestabilito  
+**DBSCAN** --> Richiede epsilon unico   
+**K-MEANS** --> No, identifica i cluster in base alla densità, non è richiesto un numero fisso  
 
-**Caratteristica** --> Gestione di densità variabili
-**OPTICS** --> Gestisce cluster di densità variabili analizzando le distanze di raggiungibilità
-**DBSCAN** --> Più adatto per cluster con densità simili; ha difficoltà con densità variabili
-**K-MEANS** --> Presuppone che i cluster abbiano densità e forme simili
+**Caratteristica** --> Gestione di densità variabili  
+**OPTICS** --> Gestisce cluster di densità variabili analizzando le distanze di raggiungibilità  
+**DBSCAN** --> Più adatto per cluster con densità simili; ha difficoltà con densità variabili  
+**K-MEANS** --> Presuppone che i cluster abbiano densità e forme simili  
 
-**Caratteristica** --> Rilevamento del rumore e dei valori anomali
-**OPTICS** --> Rileva i valori anomali in base alla raggiungibilità; non è intrinsecamente superiore a DBSCAN, ma offre una visione esplorativa della struttura del cluster
-**DBSCAN** --> Rileva efficacemente i punti di rumore come valori anomali in base alla soglia di densità
-**K-MEANS** --> Sensibile al rumore; tende ad assegnare i valori anomali al cluster più vicino, influenzando l'accuratezza
+**Caratteristica** --> Rilevamento del rumore e dei valori anomali  
+**OPTICS** --> Rileva i valori anomali in base alla raggiungibilità; non è intrinsecamente superiore a DBSCAN, ma offre una visione esplorativa della struttura del cluster  
+**DBSCAN** --> Rileva efficacemente i punti di rumore come valori anomali in base alla soglia di densità  
+**K-MEANS** --> Sensibile al rumore; tende ad assegnare i valori anomali al cluster più vicino, influenzando l'accuratezza  
 
-**Caratteristica** --> Forma del cluster
-**OPTICS** --> Può identificare gruppi di forma arbitraria
-**DBSCAN** --> Funziona bene per forme irregolari e non convesse
-**K-MEANS** --> Presuppone cluster sferici (convessi)
+**Caratteristica** --> Forma del cluster  
+**OPTICS** --> Può identificare gruppi di forma arbitraria  
+**DBSCAN** --> Funziona bene per forme irregolari e non convesse  
+**K-MEANS** --> Presuppone cluster sferici (convessi)  
 
-**Caratteristica** --> Tipo di algoritmo
-**OPTICS** --> Basato sulla densità, si basa sul grafico di raggiungibilità piuttosto che sul vicinato epsilon fisso
-**DBSCAN** --> Basato sulla densità, richiede parametri epsilon e minPts fissi
-**K-MEANS** --> Basato sul centroide, ottimizza la distanza dai centri dei cluster
+**Caratteristica** --> Tipo di algoritmo  
+**OPTICS** --> Basato sulla densità, si basa sul grafico di raggiungibilità piuttosto che sul vicinato epsilon fisso  
+**DBSCAN** --> Basato sulla densità, richiede parametri epsilon e minPts fissi  
+**K-MEANS** --> Basato sul centroide, ottimizza la distanza dai centri dei cluster  
 
-**Caratteristica** --> Scalabilità
-**OPTICS** --> Computazionalmente intensivo a causa dei calcoli di raggiungibilità; può essere più lento su set di dati molto grandi
-**DBSCAN** --> Potrebbe avere difficoltà con dati ad alta dimensionalità; scalabilità moderata
-**K-MEANS** --> Generalmente veloce e ben scalabile in termini di complessità temporale, ma le prestazioni si degradano in dimensioni elevate
+**Caratteristica** --> Scalabilità  
+**OPTICS** --> Computazionalmente intensivo a causa dei calcoli di raggiungibilità; può essere più lento su set di dati molto grandi  
+**DBSCAN** --> Potrebbe avere difficoltà con dati ad alta dimensionalità; scalabilità moderata  
+**K-MEANS** --> Generalmente veloce e ben scalabile in termini di complessità temporale, ma le prestazioni si degradano in dimensioni elevate  
 
 ---
 
