@@ -56,7 +56,7 @@ OPTICS richiede esclusivamente feature numeriche. La variabile sex è stata tras
 df = pd.get_dummies(df, columns=["sex"], drop_first=True)  
 print(df.head())
 ``` 
-L’opzione drop_first=True evita la collinearità: invece di creare due colonne (sex_FEMALE, sex_MALE) ridondanti, viene mantenuta solo sex_MALE (0 = femmina, 1= maschio)
+L’opzione ```drop_first=True``` evita la collinearità: invece di creare due colonne (sex_FEMALE, sex_MALE) ridondanti, viene mantenuta solo ```sex_MALE``` (0 = femmina, 1= maschio)
 
 Le prime righe risultano, ad esempio:
 ```
@@ -67,4 +67,27 @@ Le prime righe risultano, ad esempio:
 4          	36.7         	19.3          	193.0   	3450.0    	0
 5          	39.3         	20.6          	190.0   	3650.0   	1
 ```
+---
  
+### **3 – SELEZIONE DELLE FEATURE** ###
+ 
+Sono state selezionate tutte le feature disponibili per il clustering:
+
+-   culmen_length_mm -> Lunghezza del becco
+-   culmen_depth_mm -> Profondità del becco
+-   flipper_length_mm -> Lunghezza della pinna
+-   body_mass_g -> Massa corporea
+-   sex_MALE -> Sesso
+     
+``` 
+features = [
+    "culmen_length_mm",
+    "culmen_depth_mm",
+    "flipper_length_mm",
+    "body_mass_g",
+	“sex_male” #flag che indica il sesso
+]
+ 
+X = df[features].values
+```
+X è quindi una matrice di dimensione (*n_pinguini, 5*)
