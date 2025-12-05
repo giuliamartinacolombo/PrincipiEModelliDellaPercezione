@@ -198,7 +198,6 @@ Per verificare i cluster è stata applicata la PCA (Principal Component Analysis
 ```
 pca = PCA(n_components=2) #riduzione a 2 dimensioni
 X_pca = pca.fit_transform(X_scaled)
-print("Varianza spiegata:", pca.explained_variance_ratio_)
 ```
 Le due componenti principali (PC1, PC2) spiegano una frazione consistente della varianza totale. I punti sono stati proiettati nel piano PC1 - PC2 e colorati in base all’etichetta di cluster:
 ```
