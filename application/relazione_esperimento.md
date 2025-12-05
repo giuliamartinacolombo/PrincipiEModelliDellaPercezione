@@ -333,6 +333,7 @@ Per valutare l’effetto dei parametri di OPTICS, è stato eseguito un ulteriore
 L'esperimento è stato effettuato impostando ```xi``` al valore di 1.5, ciò che ne è risultato è stato:
 
 ![PCA_otherXi.png](images/PCA_otherXi.png)
+
 Distribuzione dei pinguini per cluster:
 ```
 cluster		n_pinguini
