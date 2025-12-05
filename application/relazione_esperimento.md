@@ -46,7 +46,7 @@ df = df.dropna()
 Si eliminano le righe contenenti almeno un valore mancante; questo riduce leggermente il numero di pinguini ma garantisce che l’algoritmo lavori su un dataset completo.
 
 
-#### **CODIFICA DELLA VARIABILE CATEGORICA *sex*** ####
+#### **CODIFICA DELLA VARIABILE CATEGORICA ```sex```** ####
 
 OPTICS richiede esclusivamente feature numeriche. La variabile sex è stata trasformata in una variabile binaria:
 
@@ -54,7 +54,7 @@ OPTICS richiede esclusivamente feature numeriche. La variabile sex è stata tras
 df = pd.get_dummies(df, columns=["sex"], drop_first=True)  
 print(df.head())
 ``` 
-L’opzione ```drop_first=True``` evita la collinearità: invece di creare due colonne (sex_FEMALE, sex_MALE) ridondanti, viene mantenuta solo ```sex_MALE``` (0 = femmina, 1= maschio)
+L’opzione ```drop_first=True``` evita la collinearità: invece di creare due colonne (```sex_FEMALE```, ```sex_MALE```) ridondanti, viene mantenuta solo ```sex_MALE``` (0 = femmina, 1= maschio)
 
 Le prime righe risultano, ad esempio:
 ```
@@ -283,3 +283,42 @@ cluster      culmen_length  culmen_depth     flipper_length 	body_mass   sex_MAL
 analisi...
 
 ---
+
+### **9 - ESPERIMENTO AGGIUNTIVO : RIMOZIONE DELLA FEATURE ```sex_MALE```** ###
+
+Per valutare l’impatto della scelta delle feature, è stato condotto un secondo esperimento eliminando la variabile ```sex_MALE``` e utilizzando soltanto le quattro feature morfologiche:
+
+* ```culmen_length_mm```
+* ```culmen_depth_mm```
+* ```flipper_length_mm```
+* ```body_mass_g```
+
+I parametri di OPTICS sono stati mantenuti invariati (```min_samples = 10```, ```xi = 0.05```, ```min_cluster_size = 0.05```) per rendere il confronto significativo.
+
+In questo scenario:
+
+* la grande maggioranza dei punti viene etichettata come rumore (label = -1), con circa 268 osservazioni classificate come outlier;
+* solo una piccola parte del dataset viene assegnata a pochi cluster “valide” (ad esempio con etichette 0, 1, 2).
+
+La distribuzione dei pinguini per cluster (esperimento senza sesso) è, ad esempio:
+```
+cluster   n_pinguini
+-1        268
+ 0         17
+ 1         30
+ 2         20
+```
+
+Le medie per cluster risultano:
+```
+cluster     culmen_length  culmen_depth    flipper_length    body_mass
+                                                                  
+-1              42.639925        17.025373        216.873134  	4183.955224
+ 0              46.500000        17.600000        191.000000  	3588.235294
+ 1              50.753333        19.020000        199.000000  	3830.833333
+ 2              49.775000        15.960000        223.500000  	5642.500000
+```
+analisi + img
+
+---
+
