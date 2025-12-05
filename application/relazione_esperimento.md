@@ -303,6 +303,7 @@ In questo scenario:
 La distribuzione dei pinguini per cluster (esperimento senza sesso) è, ad esempio:
 ```
 cluster   n_pinguini
+
 -1        268
  0         17
  1         30
