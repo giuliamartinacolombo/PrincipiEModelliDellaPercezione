@@ -326,6 +326,44 @@ analisi
 ![Reachability_no_sex](images/Reachability_no_sex.png)
 ![PCA_no_sex](images/PCA_no_sex.png)
 ---
+### **Analisi di sensibilità rispetto al parametro ```xi```** ###
 
+Per valutare l’effetto dei parametri di OPTICS, è stato eseguito un ulteriore esperimento variando il parametro ```xi```, che controlla quanto l’algoritmo è sensibile a variazioni locali di densità. 
+
+L'esperimento è stato effettuato impostando ```xi``` al valore di 1.5, ciò che ne è risultato è stato:
+
+![]()
+Distribuzione dei pinguini per cluster:
+```
+cluster		n_pinguini
+
+-1      	4
+ 0    		107
+ 1     		60
+ 2    		105
+ 3     		59
+```
+Medie per cluster:
+```
+cluster       culmen_length   culmen_depth  	flipper_length  		body_mass  		sex_MALE
+                                                                            
+-1              43.550000        19.950000        1310.000000  		4062.500000       0.5
+ 0              43.883178        19.094393         194.990654  		4018.224299       1.0
+ 1              49.558333        15.691667         221.583333  		5488.750000       1.0
+ 2              40.054286        17.580000         189.104762  		3411.904762       0.0
+ 3              45.545763        14.262712         212.779661  		4683.050847       0.0
+ ```
+Aumentando ```xi``` (riducendo quindi la sensibilità) si osserva che:
+
+* il numero di cluster diminuisce (da 6 cluster + rumore a 4 cluster principali + rumore),
+* la quota di punti etichettati come rumore crolla (da 141 a 4 osservazioni),
+* i cluster risultano più estesi e compatti nello spazio delle feature.
+
+Nel corrispondente grafico PCA 2D i quattro cluster formano insiemi ben separati, mentre i pochi outlier rimangono isolati. Le medie di ```sex_MALE``` per cluster mostrano ancora una forte separazione tra gruppi di soli maschi (valore medio 1) e gruppi di sole femmine (valore medio 0), indicando che la struttura legata al sesso rimane visibile anche con una scelta di ```xi``` molto meno sensibile. Questo esperimento conferma che:
+
+* OPTICS può passare da una descrizione più fine (molti cluster + più rumore) a una più grossolana (pochi cluster grandi + quasi nessun rumore) semplicemente variando ```xi```
+* La scelta di ```xi``` non crea cluster “dal nulla”, ma decide a che livello di dettaglio vogliamo leggere la struttura di densità già presente nei dati
+
+---
 Il codice completo utilizzato per l’esperimento è disponibile al seguente link: [penguins_optics.py](penguins_optics.py)
 
