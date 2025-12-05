@@ -162,4 +162,32 @@ Distribuzione: {
 ```
 (la somma corrisponde ai 335 pinguini rimasti dopo il preprocessing).
 
+---
+
+### **6 - COSTRUZIONE DEL REACHABILITY PLOT** ###
+
+Per interpretare il risultato di OPTICS è stato costruito il reachability plot, che rappresenta la reachability distance dei punti nell’ordine in cui vengono visitati dall’algoritmo.
+
+```
+ordering = optics.ordering_ 
+reachability = optics.reachability_[ordering] 
+
+
+#Grafico del reachability plot
+plt.figure(figsize=(10, 4))
+plt.title("OPTICS - Reachability Plot (Penguins)")
+plt.xlabel("Indice nell'ordine di visita")
+plt.ylabel("Reachability distance")
+plt.bar(np.arange(len(reachability)), reachability, width=1.0)
+plt.tight_layout()
+plt.show()
+```
+
+* ```ordering``` è la permutazione degli indici dei pinguini secondo l’ordine di visita di OPTICS (guidato dalla densità, non dall’ordine originario del dataset)
+* ```reachability``` contiene, per ciascun punto in questo ordine, la sua reachability distance.
+
+...analisi...
+img
+
+---
 
