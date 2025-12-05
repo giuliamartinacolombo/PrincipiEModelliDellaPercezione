@@ -2,7 +2,9 @@
 
 introduzione
 
-#### **1. SETTING DELL'AMBIENTE**
+---
+
+### **1. SETTING DELL'AMBIENTE** ###
 Per prima cosa sono state importate tutte le librerie necessarie al funzionamento del programma:
 
 ```
@@ -29,3 +31,40 @@ L’output mostra le prime righe e alcune informazioni strutturali:
 
 Viene inoltre evidenziata la presenza di valori mancanti.
 
+---
+
+### **2. PREPROCESSING DEI DATI** ###
+Prima di poter applicare l’algoritmo è stato necessario ripulire e trasformare i dati.
+
+<br>
+
+#### **Rimozione dei valori mancanti** ####
+
+```
+df = df.dropna()
+```
+ 
+Si eliminano le righe contenenti almeno un valore mancante; questo riduce leggermente il numero di pinguini ma garantisce che l’algoritmo lavori su un dataset completo.
+
+<br>
+
+#### **Codifica della variabile categorica *sex*** ####
+
+OPTICS richiede esclusivamente feature numeriche. La variabile sex è stata trasformata in una variabile binaria:
+
+```
+df = pd.get_dummies(df, columns=["sex"], drop_first=True)  
+print(df.head())
+``` 
+L’opzione drop_first=True evita la collinearità: invece di creare due colonne (sex_FEMALE, sex_MALE) ridondanti, viene mantenuta solo sex_MALE (0 = femmina, 1= maschio)
+
+Le prime righe risultano, ad esempio:
+```
+    culmen_length   culmen_depth    flipper_length  	body_mass  sex_MALE
+0          	39.1         	18.7          	181.0   	3750.0     	1
+1          	39.5         	17.4          	186.0   	3800.0    	0
+2          	40.3         	18.0          	195.0   	3250.0    	0
+4          	36.7         	19.3          	193.0   	3450.0    	0
+5          	39.3         	20.6          	190.0   	3650.0   	1
+```
+ 
