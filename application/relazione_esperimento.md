@@ -297,8 +297,8 @@ I parametri di OPTICS sono stati mantenuti invariati (```min_samples = 10```, ``
 
 In questo scenario:
 
-* la grande maggioranza dei punti viene etichettata come rumore (label = -1), con circa 268 osservazioni classificate come outlier;
-* solo una piccola parte del dataset viene assegnata a pochi cluster “valide” (ad esempio con etichette 0, 1, 2).
+* la grande maggioranza dei punti viene etichettata come rumore (```label = -1```), con circa 268 osservazioni classificate come outlier;
+* solo una piccola parte del dataset viene assegnata a pochi cluster “valide” (ad esempio con etichette ```0```, ```1```, ```2```).
 
 La distribuzione dei pinguini per cluster (esperimento senza sesso) è, ad esempio:
 ```
