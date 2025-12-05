@@ -237,3 +237,49 @@ plt.show()
 analisi + img
 
 ---
+
+### **8 - RISULTATI** ###
+Per sintetizzare il risultato è stato creato un DataFrame esteso con l’assegnazione di cluster:
+```
+df_clusters = df.copy()
+df_clusters["cluster"] = labels
+
+print("\nDistribuzione dei pinguini per cluster:")
+print(df_clusters["cluster"].value_counts().sort_index())
+
+print("\nMedie per cluster:")
+print(df_clusters.groupby("cluster")[features].mean())
+
+
+print("\n fine del programma")
+```
+
+La distribuzione dei pinguini per cluster è la seguente:
+```
+cluster	n_pinguini
+-1    		141
+ 0     		25
+ 1     		33
+ 2     		20
+ 3     		18
+ 4     		75
+ 5     		23
+```
+
+
+Le medie di valori per cluster sono le seguenti:
+
+```
+cluster      culmen_length  culmen_depth     flipper_length 	body_mass   sex_MALE
+                                                                          
+-1              44.773759        16.804255         237.801418  	4557.446809   0.64539
+ 0              40.744000        18.708000         191.240000  	3931.000000   1.00000
+ 1              51.066667        19.209091         199.606061  	3912.878788   1.00000
+ 2              49.775000        15.960000         223.500000  	5642.500000   1.00000
+ 3              46.488889        17.483333         191.944444  	3608.333333   0.00000
+ 4              37.565333        17.549333         187.720000  	3357.666667   0.00000
+ 5              46.500000        14.378261         213.347826  	4802.173913   0.00000
+```
+analisi...
+
+---
