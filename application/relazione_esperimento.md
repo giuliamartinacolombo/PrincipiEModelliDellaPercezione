@@ -187,7 +187,7 @@ plt.show()
 * ```reachability``` contiene, per ciascun punto in questo ordine, la sua reachability distance.
 
 ...analisi...
-![Reachability_sex_MALE](images/Reachability_sex_MALE)
+![Reachability_sex_MALE](images/Reachability_sex_MALE.png)
 
 ---
 
@@ -236,7 +236,7 @@ plt.show()
 
 analisi
 
-![PCA_sex_MALE](images/PCA_sex_MALE)
+![PCA_sex_MALE](images/PCA_sex_MALE.png)
 
 ---
 
@@ -323,8 +323,8 @@ cluster     culmen_length  culmen_depth    flipper_length    body_mass
 ```
 analisi
 
-![Reachability_no_sex](images/Reachability_no_sex)
-![PCA_no_sex](images/PCA_no_sex)
+![Reachability_no_sex](images/Reachability_no_sex.png)
+![PCA_no_sex](images/PCA_no_sex.png)
 ---
 
 Il codice completo utilizzato per l’esperimento è disponibile al seguente link: [penguins_optics.py](penguins_optics.py)
