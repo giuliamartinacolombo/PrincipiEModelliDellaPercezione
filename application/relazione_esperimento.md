@@ -191,3 +191,50 @@ img
 
 ---
 
+### **7 - VISUALIZZAZIONE DEI CLUSTER TRAMITE PCA 2D** ###
+
+Per verificare i cluster è stata applicata la PCA (Principal Component Analysis) per ridurre lo spazio da 5 a 2 dimensioni:
+
+```
+pca = PCA(n_components=2) #riduzione a 2 dimensioni
+X_pca = pca.fit_transform(X_scaled)
+print("Varianza spiegata:", pca.explained_variance_ratio_)
+```
+Le due componenti principali (PC1, PC2) spiegano una frazione consistente della varianza totale. I punti sono stati proiettati nel piano PC1 - PC2 e colorati in base all’etichetta di cluster:
+```
+plt.figure(figsize=(7, 6))
+plt.title("Penguins - PCA 2D con cluster OPTICS")
+plt.xlabel("PC1")
+plt.ylabel("PC2")
+
+for cluster_id in np.unique(labels):
+    mask = labels == cluster_id
+    if cluster_id == -1:    #rumore
+        lab = "Rumore (-1)"
+        marker = "x"
+        size = 40
+        alpha = 0.9
+    else:
+        lab = f"Cluster {cluster_id}" #etichetta del cluster
+        marker = "o"
+        size = 20
+        alpha = 0.7
+    
+    # Scatter plot dei punti appartenenti al cluster corrente
+    plt.scatter(
+        X_pca[mask, 0],
+        X_pca[mask, 1],
+        s=size,
+        marker=marker,
+        alpha=alpha,
+        label=lab
+    )
+
+plt.legend()
+plt.tight_layout()
+plt.show()
+```
+
+analisi + img
+
+---
