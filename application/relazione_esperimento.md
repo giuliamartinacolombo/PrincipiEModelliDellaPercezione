@@ -36,9 +36,8 @@ Viene inoltre evidenziata la presenza di valori mancanti.
 ### **2. PREPROCESSING DEI DATI** ###
 Prima di poter applicare l’algoritmo è stato necessario ripulire e trasformare i dati.
 
-<br>
 
-#### **Rimozione dei valori mancanti** ####
+#### **RIMOZIONE DEI VALORI MANCANTI** ####
 
 ```
 df = df.dropna()
@@ -46,9 +45,8 @@ df = df.dropna()
  
 Si eliminano le righe contenenti almeno un valore mancante; questo riduce leggermente il numero di pinguini ma garantisce che l’algoritmo lavori su un dataset completo.
 
-<br>
 
-#### **Codifica della variabile categorica *sex*** ####
+#### **CODIFICA DELLA VARIABILE CATEGORICA *sex*** ####
 
 OPTICS richiede esclusivamente feature numeriche. La variabile sex è stata trasformata in una variabile binaria:
 
@@ -114,3 +112,54 @@ L’output conferma che:
 * ogni riga rappresenta un pinguino in uno spazio a 5 dimensioni standardizzato, ad esempio:
 
 ```Prima riga: [-0.89772327  0.77726336 -0.12689335 -0.57223347  0.99108452]```
+
+---
+
+### **5 – APPLICAZIONE DI OPTICS** ###
+ 
+L’algoritmo OPTICS è stato applicato a X_scaled con i seguenti parametri:
+
+* ```min_samples = 10``` -> numero minimo di punti nel vicinato di un punto perché questo sia considerato core point;
+* ```xi = 0.05``` -> controlla la sensibilità alle variazioni di densità: valori più piccoli rendono OPTICS più sensibile a cambiamenti locali e tendono a produrre più cluster;
+* ```min_cluster_size = 0.05``` -> dimensione minima del cluster pari al 5% del numero totale di punti.
+
+```
+optics = OPTICS(
+	min_samples=10,
+	xi=0.05,    
+	min_cluster_size=0.05
+)
+ 
+optics.fit(X_scaled)
+```
+ 
+Dopo il fit vengono estratte le etichette di cluster:
+
+```
+labels = optics.labels_ #array delle etichette dei cluster 
+unique, counts = np.unique(labels, return_counts=True) 
+ 
+print("Label uniche:", unique)
+print("Distribuzione:", dict(zip(unique, counts)))
+``` 
+Le etichette hanno il seguente significato:
+* ```-1```  -> punti considerati rumore (outlier)
+* ```0, 1, 2 … ```-> cluster individuati dall’algoritmo
+
+Nell’esperimento con tutte le feature (incluso ```sex_MALE```) OPTICS ha individuato 6 cluster (0-5) più una quota di rumore (-1). La distribuzione è, ad esempio:
+
+```
+Label uniche: [-1  0  1  2  3  4  5]
+Distribuzione: {
+  -1: 141,
+   0: 25,
+   1: 33,
+   2: 20,
+   3: 18,
+   4: 75,
+   5: 23
+}
+```
+(la somma corrisponde ai 335 pinguini rimasti dopo il preprocessing).
+
+
