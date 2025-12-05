@@ -322,3 +322,5 @@ analisi + img
 
 ---
 
+Il codice completo utilizzato per l’esperimento è disponibile al seguente link: [penguins_optics.py](penguins_optics.py)
+
