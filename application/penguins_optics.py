@@ -31,7 +31,7 @@ features = [
     "culmen_depth_mm",
     "flipper_length_mm",
     "body_mass_g",
-    "sex_MALE"              #flag numerico per il sesso
+    "sex_MALE"              #flag numerico per il sesso - da commentare per il secondo esperimento
 ]
 
 X = df[features].values     #matrice delle feature selezionate che ha shape (n_pinguini, n_features)
