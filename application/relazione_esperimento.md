@@ -91,3 +91,26 @@ features = [
 X = df[features].values
 ```
 ```X``` è quindi una matrice di dimensione (*n_pinguini, 5*)
+
+---
+
+### **4 – STANDARDIZZAZIONE DELLE FEATURE** ###
+ 
+Le variabili presentano scale molto diverse (millimetri, grammi, variabile binaria) che non sarebbero paragonabili. Poiché OPTICS si basa sulle distanze, è necessario riportarle su una scala comparabile tramite standardizzazione:
+ 
+```
+scaler = StandardScaler()
+X_scaled = scaler.fit_transform(X) #applica ad ogni colonna una formula 
+ 
+ 
+print("Shape X_scaled:", X_scaled.shape) 
+print("Prima riga:", X_scaled[0]) 
+```
+
+L’output conferma che:
+
+* ```X_scale```d ha dimensione (335, 5)
+
+* ogni riga rappresenta un pinguino in uno spazio a 5 dimensioni standardizzato, ad esempio:
+
+```Prima riga: [-0.89772327  0.77726336 -0.12689335 -0.57223347  0.99108452]```
