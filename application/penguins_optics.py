@@ -41,7 +41,7 @@ X = df[features].values     #matrice delle feature selezionate che ha shape (n_p
 # ======== Standardizzazione delle caratteristiche ========
 
 #permette di avere tutte le feature sulla stessa scala -> altrimenti quelle con varianza più alta influenzano di più il clustering (peso maggiore)
-scaler = StandardScaler()   #applica ad ongi colonna una formula di standardizzazione (media 0, deviazione standard 1)
+scaler = StandardScaler()   #applica ad ongi colonna una formula di standardizzazione
 X_scaled = scaler.fit_transform(X)
 
 
