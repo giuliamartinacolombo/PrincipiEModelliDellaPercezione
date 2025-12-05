@@ -26,8 +26,8 @@ print(df.info())
 L’output mostra le prime righe e alcune informazioni strutturali:
 - 344 righe totali
 - 5 colonne:
-  * culmen_length_mm, culmen_depth_mm , flipper_length_mm , body_mass_g (di tipo float64)
-  * sex (di tipo object)
+  * ```culmen_length_mm```, ```culmen_depth_mm``` , ```flipper_length_mm``` , ```body_mass_g``` (di tipo float64)
+  * ```sex``` (di tipo object)
 
 Viene inoltre evidenziata la presenza di valori mancanti.
 
@@ -73,11 +73,11 @@ Le prime righe risultano, ad esempio:
  
 Sono state selezionate tutte le feature disponibili per il clustering:
 
--   culmen_length_mm -> Lunghezza del becco
--   culmen_depth_mm -> Profondità del becco
--   flipper_length_mm -> Lunghezza della pinna
--   body_mass_g -> Massa corporea
--   sex_MALE -> Sesso
+-   ```culmen_length_mm``` -> Lunghezza del becco
+-   ```culmen_depth_mm``` -> Profondità del becco
+-   ```flipper_length_mm``` -> Lunghezza della pinna
+-   ```body_mass_g``` -> Massa corporea
+-   ```sex_MALE``` -> Sesso
      
 ``` 
 features = [
@@ -90,4 +90,4 @@ features = [
  
 X = df[features].values
 ```
-X è quindi una matrice di dimensione (*n_pinguini, 5*)
+```X``` è quindi una matrice di dimensione (*n_pinguini, 5*)
