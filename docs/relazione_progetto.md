@@ -5,6 +5,7 @@
 # 🟢 Analisi delle Densità con OPTICS 🟢
 ## Esplorazione dei dataset e identificazione dei cluster attraverso l’algoritmo OPTICS
 ---
+L'obiettivo di questa pratica è osservare come OPTICS si comporta su un dataset reale con poche dimensioni e struttura potenzialmente clusterizzata, analizzando in particolare l'impatto della scelta delle feature sulla densità e sul numero di cluster individuati.
 
 ### 🗂️ **Introduzione al Clustering**
 
