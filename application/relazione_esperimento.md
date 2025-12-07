@@ -1,6 +1,6 @@
 # Applicazione di OPTICS – Dataset “Penguins” #
 
-L'obiettivo di questa parte pratica è osservare come OPTICS si comporta su un dataset reale con poche dimensioni e struttura potenzialmente clusterizzata, analizzando in particolare l'impatto della scelta della feature sulla densità e sul numero di cluster individuati.
+L'obiettivo di questa parte pratica è vedeere come OPTICS si comporta su un dataset reale con poche dimensioni e struttura a cluster e, allo stesso tempo, capire se nei dati dei pinguini emergono davvero gruppi di individui con caratteristiche simili (ad esempio per dimensioni, massa corporea e sesso).
 
 ---
 
