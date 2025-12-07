@@ -334,7 +334,7 @@ Per analizzare il comportamento dell’algoritmo OPTICS su dati reali è stato u
 
 Per valutare l’effetto dei parametri di OPTICS, è stato eseguito un ulteriore esperimento variando il parametro ```xi```, che controlla quanto l’algoritmo è sensibile a variazioni locali di densità. 
 
-L'esperimento è stato effettuato impostando ```xi``` al valore di 1.5, ciò che ne è risultato è stato:
+L'esperimento è stato effettuato impostando ```xi``` al valore di 0.15, ciò che ne è risultato è stato:
 
 ![PCA_otherXi.png](images/PCA_otherXi.png)
 
