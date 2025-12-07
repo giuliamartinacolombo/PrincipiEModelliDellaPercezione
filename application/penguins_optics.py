@@ -71,6 +71,18 @@ print("Distribuzione:", dict(zip(unique, counts)))
 
 
 
+# ======== Costruzione dell'istogramma ========
+
+plt.figure(figsize=(6,4))
+plt.bar(unique, counts)
+plt.xlabel("Cluster")
+plt.ylabel("Numero di pinguini")
+plt.title("Numero di pinguini per cluster (OPTICS)")
+plt.tight_layout()
+plt.show()
+
+
+
 # ======== Costruzione del reachability plot ========
 ordering = optics.ordering_  #ordine di visita dei punti da parte di OPTICS, parte dal punto più denso, non è l'ordine originale dei pinguini nel dataset
 reachability = optics.reachability_[ordering]   #reachability distance dei punti nell'ordine di visita
@@ -126,6 +138,32 @@ plt.show()
 
 df_clusters = df.copy()
 df_clusters["cluster"] = labels
+
+
+
+# ======== Heatmap delle medie per cluster ========
+df_std = pd.DataFrame(X_scaled, columns=features)
+df_std["cluster"] = labels
+
+cluster_means_std = df_std.groupby("cluster")[features].mean()
+
+plt.figure(figsize=(7, 5))
+im = plt.imshow(cluster_means_std, aspect="auto")
+plt.title("Medie STANDARDIZZATE (z-score) per cluster")
+plt.xlabel("Feature")
+plt.ylabel("Cluster")
+plt.colorbar(im, label="Valore medio (z-score)")
+
+plt.xticks(np.arange(len(features)), features, rotation=45, ha="right")
+plt.yticks(np.arange(len(cluster_means_std.index)), cluster_means_std.index)
+
+for i in range(cluster_means_std.shape[0]):
+    for j in range(cluster_means_std.shape[1]):
+        val = cluster_means_std.iloc[i, j]
+        plt.text(j, i, f"{val:.2f}", ha="center", va="center", fontsize=8)
+
+plt.tight_layout()
+plt.show()
 
 
 # ======== Risultati finali ========
