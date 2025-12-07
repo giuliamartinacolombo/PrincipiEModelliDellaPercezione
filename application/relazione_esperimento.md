@@ -116,6 +116,8 @@ L’output conferma che:
 ---
 
 ### **5 – APPLICAZIONE DI OPTICS** ###
+
+L’algoritmo è stato implementato in Python, utilizzando le principali librerie per l’analisi dei dati e il machine learning.
  
 L’algoritmo OPTICS è stato applicato a X_scaled con i seguenti parametri:
 
