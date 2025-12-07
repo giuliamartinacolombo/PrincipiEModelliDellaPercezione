@@ -187,7 +187,12 @@ plt.show()
 * ```ordering``` è la permutazione degli indici dei pinguini secondo l’ordine di visita di OPTICS (guidato dalla densità, non dall’ordine originario del dataset)
 * ```reachability``` contiene, per ciascun punto in questo ordine, la sua reachability distance.
 
-...analisi...
+Nel grafico risultante si osservano:
+
+“vallate” a bassa reachability distance -> regioni dense dello spazio dei dati, corrispondenti ai cluster;
+
+picchi più elevati -> punti isolati o transizioni tra cluster, spesso associati a rumore.
+
 ![Reachability_sex_MALE](images/Reachability_sex_MALE.png)
 
 ---
