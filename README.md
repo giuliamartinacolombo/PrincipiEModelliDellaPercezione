@@ -10,10 +10,11 @@ Il lavoro comprende:
 
 ## Struttura della repository
 
-```text
+```
 application/
     penguins_optics.py            # script principale con OPTICS e visualizzazioni
-    relazione_esperimento.md      # relazione della parte pratica 
+    relazione_esperimento.md      # relazione della parte pratica
+    penguins.csv                  # dataset
 
     images/
         PCA_sex_MALE.png          # PCA 2D con sesso incluso
@@ -30,3 +31,29 @@ docs/
     slide_OPTICS.pdf              # slide di presentazione del progetto
 
 README.md                     # questo file
+```
+
+## Requisiti
+
+Per eseguire il codice è fondamentale che:
+* Python sia installato sulla macchina
+* I file ```penguins_optics.py``` e ```penguins.csv``` siano nella stessa cartella
+* Le seguenti librerie di Python siano installate:
+  * pandas
+  * numpy
+  * matplotlib
+  * scikit-learn
+
+Installazione rapida:
+```
+pip install pandas numpy matplotlib scikit-learn
+
+```
+## Documentazione
+
+La documentazione si divide in due parti:
+* docs/relazione_progetto.md -> relazione sulla parte teorica
+* application/relazione_esperimento.md -> relazione sulla parte pratica (applicazione di OPTICS e analisi dei risultati)
+
+  
+
