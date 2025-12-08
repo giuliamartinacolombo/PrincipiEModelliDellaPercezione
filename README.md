@@ -19,7 +19,7 @@ application/
     images/
         PCA_sex_MALE.png          # PCA 2D con sesso incluso
         PCA_no_sex.png            # PCA 2D senza sesso
-        PCA_otherXi               # PCA 2D con la variazione del parametro Xi
+        PCA_otherXi.png               # PCA 2D con la variazione del parametro Xi
         Reachability_sex_MALE.png # reachability plot con sesso
         Reachability_no_sex.png   # reachability plot senza sesso
         heatmap.png
