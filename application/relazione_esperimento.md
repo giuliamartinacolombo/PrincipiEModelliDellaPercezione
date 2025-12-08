@@ -372,9 +372,21 @@ cluster     culmen_length  culmen_depth    flipper_length    body_mass
  1              50.753333        19.020000        199.000000  	3830.833333
  2              49.775000        15.960000        223.500000  	5642.500000
 ```
-analisi
+Dalle analisi emerge che:
+- il cluster 2 raggruppa pinguini con pinne molto lunghe e massa corporea elevata -> individui di taglia particolarmente grande.
+- il cluster 1 mostra valori alti sia di lunghezza sia di profondità del becco, ->  pinguini con becco più sviluppato rispetto alla media
+- il cluster 0  è caratterizzato da pinne più corte e massa inferiore, -> pinguini complessivamente più piccoli
+
+ Il fatto che la maggior parte dei punti resti comunque classificata come rumore suggerisce però che, in assenza della feature sul sesso, le sole differenze morfologiche non siano sufficienti a definire regioni di densità ben separate nello spazio delle feature.
+
+
+Anche il nuovo reachability plot presenta poche vallate strette e lunghi tratti con valori di reachability elevati, segno che OPTICS non individua più regioni estese e stabili di alta densità. 
+
 
 ![Reachability_no_sex](images/Reachability_no_sex.png)
+
+La PCA 2D mostra cluster meno compatti e più sovrapposti.
+
 ![PCA_no_sex](images/PCA_no_sex.png)
 ---
 ### **Analisi di sensibilità rispetto al parametro ```xi```** ###
