@@ -28,7 +28,8 @@ application/
 docs/                       
     bibliografia.md               # riferimenti bibliografici
     relazione_progetto.md         # relazione teorica su clustering e OPTICS
-    slide_OPTICS.pdf              # slide di presentazione del progetto
+    slide_OPTICS.pdf              # slide di presentazione del progetto in pdf
+    slide_OPTICS.pptx             # slide di presentazione del progetto in pptx
 
 README.md                     # questo file
 ```
