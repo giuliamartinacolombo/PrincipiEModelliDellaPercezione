@@ -329,6 +329,39 @@ Per rendere più leggibili gli scostamenti rispetto alla media globale, è stata
 
 ![heatmap](images/heatmap.png)
 
+Questa heatmap mostra, per ogni cluster e per ogni feature, quanto il valore medio è sopra o sotto la media globale (0):
+
+* valori positivi → feature mediamente sopra la media globale;
+
+* valori negativi → feature sotto la media;
+
+* l’intensità del colore misura quanto il valore si discosta dalla media.
+
+
+Dalla heatmap si osserva che, per il cluster di maschi:
+
+
+- il cluster 2 ha un forte valore positivo su body_mass_g, confermando pinguini molto pesanti;
+
+- il cluster 1 spicca per lunghezza e profondità del becco sopra la media;
+
+- il cluster 0 ha becco meno lungo ma più profondo.
+
+
+Per quanto riguarda i cluster di femmine:
+
+- il cluster 4 ha valori negativi su quasi tutte le feature morfologiche, confermando la presenza di femmine piccole e leggere;
+
+- il cluster 5 mostra massa sopra la media ma profondità del becco sotto la media, indicando femmine più pesanti con becco meno profondo;
+
+- il cluster 3 è vicino alla media su gran parte delle feature.
+
+
+Il rumore (-1) ha valori moderati, senza scostamenti estremi.
+
+
+In sintesi, tutti questi dati confermano che OPTICS non “inventa” i cluster, ma separa i punti con pattern morfologici e di sesso coerenti. Di fatto, funziona bene solo se le feature sono effettivamente informative.
+
 ---
 
 ### **9 - ESPERIMENTO AGGIUNTIVO : RIMOZIONE DELLA FEATURE ```sex_MALE```** ###
