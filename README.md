@@ -4,8 +4,8 @@ Questo progetto, sviluppato per l’insegnamento Principi e Modelli della Percez
 Il lavoro comprende:
 - utilizzo di tecniche di clustering non supervisionato,
 - applicazione dell’algoritmo OPTICS tramite Python,
-- visualizzazione del reachability plot e dei cluster risultanti,
-- confronto con altri algoritmi basati sulla densità (es. DBSCAN),
+- visualizzazione del reachability plot e dei cluster risultanti, andando a lavorare su feature e parametri
+- confronto teorico con altri algoritmi basati sulla densità (es. DBSCAN),
 - analisi e interpretazione dei risultati.
 
 ## Struttura della repository
