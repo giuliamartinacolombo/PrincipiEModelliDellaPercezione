@@ -240,7 +240,10 @@ plt.tight_layout()
 plt.show()
 ```
 
-analisi
+Nel grafico:
+i punti appartenenti allo stesso cluster tendono a formare gruppi compatti e ragionevolmente separati
+
+il rumore (label = -1) appare più disperso, spesso ai margini delle regioni occupate dai cluster
 
 ![PCA_sex_MALE](images/PCA_sex_MALE.png)
 
