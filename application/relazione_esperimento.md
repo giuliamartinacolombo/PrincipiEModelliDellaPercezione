@@ -389,6 +389,8 @@ La PCA 2D mostra cluster meno compatti e più sovrapposti.
 
 ![PCA_no_sex](images/PCA_no_sex.png)
 ---
+L’interpretazione è che, rimuovendo il sesso, lo spazio delle feature diventa più “continuo”: maschi e femmine con misure simili finiscono vicini. A parità di parametri, OPTICS non considera più la maggior parte dei punti come appartenenti a cluster sufficientemente densi e li classifica come rumore.
+
 ### **Analisi di sensibilità rispetto al parametro ```xi```** ###
 
 Per analizzare il comportamento dell’algoritmo OPTICS su dati reali è stato utilizzato il dataset Penguins, che contiene misure morfologiche di pinguini (lunghezza e profondità del becco, lunghezza della pinna, massa corporea) e il sesso dell’animale.
