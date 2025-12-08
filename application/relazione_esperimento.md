@@ -278,6 +278,16 @@ cluster	n_pinguini
 ```
 ![histogram](images/histogram.png)
 
+Questa distribuzione è stata anche rappresentata con un istogramma del numero di pinguini per cluster, da cui si vede subito che:
+il cluster 4 è il più ampio (75 individui);
+il rumore (-1) con 141 punti è molto numeroso
+i cluster 0, 1, 2, 3 e 5 hanno quantità più contenute.
+
+
+L’istogramma rende visivamente chiaro che:
+OPTICS individua pochi cluster “grandi” (in particolare il 4) e alcuni cluster più piccoli, che rappresentano sottogruppi morfologicamente più specifici;
+Una parte importante del dataset viene comunque etichettata come rumore , ossia punti che non rientrano in regioni abbastanza dense.
+
 Le medie di valori per cluster sono le seguenti:
 
 ```
