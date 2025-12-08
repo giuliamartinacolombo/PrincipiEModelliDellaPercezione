@@ -273,7 +273,7 @@ cluster	n_pinguini
  4     		75
  5     		23
 ```
-
+![histogram](images/histogram.png)
 
 Le medie di valori per cluster sono le seguenti:
 
@@ -289,6 +289,8 @@ cluster      culmen_length  culmen_depth     flipper_length 	body_mass   sex_MAL
  5              46.500000        14.378261         213.347826  	4802.173913   0.00000
 ```
 analisi...
+
+![heatmap](images/heatmap.png)
 
 ---
 
