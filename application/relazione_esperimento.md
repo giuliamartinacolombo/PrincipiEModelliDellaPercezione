@@ -302,31 +302,25 @@ cluster      culmen_length  culmen_depth     flipper_length 	body_mass   sex_MAL
  5              46.500000        14.378261         213.347826  	4802.173913   0.00000
 ```
 Dall’analisi dei risultati emerge che:
-cluster 0, 1, 2 → solo maschi (sex_MALE = 1);
+* cluster 0, 1, 2 → solo maschi (sex_MALE = 1);
+
+* cluster 3,4,5 → solo femmine (sex_MALE = 0);
+
+* tra i maschi:
+
+		- i cluster 1 e 2 hanno il becco più lungo della media, il cluster 2 ha anche valori di massa e lunghezza pinne molto elevati, andando ad evidenziare pinguini “grossi”;
+
+		- il cluster 0 ha il becco relativamente corto ma profondo;
 
 
-cluster 3,4,5 → solo femmine (sex_MALE = 0);
 
+* tra le femmine:
 
-tra i maschi:
+		- il cluster 4 ha valori medi di lunghezza becco, pinna e massa tutti sotto la media. Il tutto coincide con una descrizione di pinguini più piccoli e leggeri;
 
+		- il cluster 5 ha massa alta e pinne più lunghe, ma becco meno profondo;
 
-i cluster 1 e 2 hanno il becco più lungo della media, il cluster 2 ha anche valori di massa e lunghezza pinne molto elevati, andando ad evidenziare pinguini “grossi”;
-
-
-il cluster 0 ha il becco relativamente corto ma profondo;
-
-
-tra le femmine:
-
-
-il cluster 4 ha valori medi di lunghezza becco, pinna e massa tutti sotto la media. Il tutto coincide con una descrizione di pinguini più piccoli e leggeri;
-
-
-il cluster 5 ha massa alta e pinne più lunghe, ma becco meno profondo;
-
-
-il cluster 3 è una situazione intermedia.
+		- il cluster 3 è una situazione intermedia.
 
 
 Il rumore , etichettato come -1, ha valori medi abbastanza vicini alla media globale e comprende un mix di maschi e femmine: non rappresenta un singolo tipo morfologico, ma piuttosto punti in zone di transizione fra cluster densi.
