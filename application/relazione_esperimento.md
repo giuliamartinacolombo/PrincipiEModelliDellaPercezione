@@ -189,9 +189,9 @@ plt.show()
 
 Nel grafico risultante si osservano:
 
-*“vallate” a bassa reachability distance -> regioni dense dello spazio dei dati, corrispondenti ai cluster;
+* “vallate” a bassa reachability distance -> regioni dense dello spazio dei dati, corrispondenti ai cluster;
 
-*picchi più elevati -> punti isolati o transizioni tra cluster, spesso associati a rumore.
+* picchi più elevati -> punti isolati o transizioni tra cluster, spesso associati a rumore.
 
 ![Reachability_sex_MALE](images/Reachability_sex_MALE.png)
 
