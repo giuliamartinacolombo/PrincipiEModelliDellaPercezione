@@ -52,8 +52,8 @@ pip install pandas numpy matplotlib scikit-learn
 ## Documentazione
 
 La documentazione si divide in due parti:
-* docs/relazione_progetto.md -> relazione sulla parte teorica
-* application/relazione_esperimento.md -> relazione sulla parte pratica (applicazione di OPTICS e analisi dei risultati)
+* ```docs/relazione_progetto.md``` -> relazione sulla parte teorica
+* ```application/relazione_esperimento.md``` -> relazione sulla parte pratica (applicazione di OPTICS e analisi dei risultati)
 
   
 
