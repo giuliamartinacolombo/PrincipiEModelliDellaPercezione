@@ -154,10 +154,10 @@ plt.xlabel("Feature")
 plt.ylabel("Cluster")
 plt.colorbar(im, label="Valore medio (z-score)")
 
-plt.xticks(np.arange(len(features)), features, rotation=45, ha="right")
-plt.yticks(np.arange(len(cluster_means_std.index)), cluster_means_std.index)
+plt.xticks(np.arange(len(features)), features, rotation=45, ha="right")        #feature appaiono in obliquo, asse x
+plt.yticks(np.arange(len(cluster_means_std.index)), cluster_means_std.index)   #i cluster appaiono sull'asse y
 
-for i in range(cluster_means_std.shape[0]):
+for i in range(cluster_means_std.shape[0]):        #scorre la matrice dei valori e li inserisce nel grafico
     for j in range(cluster_means_std.shape[1]):
         val = cluster_means_std.iloc[i, j]
         plt.text(j, i, f"{val:.2f}", ha="center", va="center", fontsize=8)
