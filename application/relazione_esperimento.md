@@ -400,7 +400,7 @@ Dalle analisi emerge che:
 - il cluster 1 mostra valori alti sia di lunghezza sia di profondità del becco, ->  pinguini con becco più sviluppato rispetto alla media
 - il cluster 0  è caratterizzato da pinne più corte e massa inferiore, -> pinguini complessivamente più piccoli
 
- Il fatto che la maggior parte dei punti resti comunque classificata come rumore suggerisce però che, in assenza della feature sul sesso, le sole differenze morfologiche non siano sufficienti a definire regioni di densità ben separate nello spazio delle feature.
+Il fatto che la maggior parte dei punti resti comunque classificata come rumore suggerisce però che, in assenza della feature sul sesso, le sole differenze morfologiche non siano sufficienti a definire regioni di densità ben separate nello spazio delle feature.
 
 
 Anche il nuovo reachability plot presenta poche vallate strette e lunghi tratti con valori di reachability elevati, segno che OPTICS non individua più regioni estese e stabili di alta densità. 
@@ -411,7 +411,7 @@ Anche il nuovo reachability plot presenta poche vallate strette e lunghi tratti 
 La PCA 2D mostra cluster meno compatti e più sovrapposti.
 
 ![PCA_no_sex](images/PCA_no_sex.png)
----
+
 L’interpretazione è che, rimuovendo il sesso, lo spazio delle feature diventa più “continuo”: maschi e femmine con misure simili finiscono vicini. A parità di parametri, OPTICS non considera più la maggior parte dei punti come appartenenti a cluster sufficientemente densi e li classifica come rumore.
 
 ---
@@ -430,7 +430,9 @@ I parametri di OPTICS sono gli stessi in entrambi i casi; il cambiamento nel num
 Nel caso morfologico puro (senza quindi considerare il sesso), le differenze tra individui sono distribuite in modo graduale, senza stacchi netti: ne deriva un’elevata quota di outlier. Introducendo una feature che separa gruppi relativamente omogenei (come il sesso in questo dataset) aumenta la densità locale e l’algoritmo riesce a identificare cluster più chiari e interpretabili.
 
 In sintesi, l’esperimento sul dataset Penguins mostra che OPTICS non “inventa” cluster dove la struttura non è supportata dai dati: se lo spazio delle feature non contiene regioni ben separate, l’algoritmo restituisce prevalentemente rumore. Quando invece le feature catturano in modo efficace le differenze tra sottogruppi (in questo caso sesso + misure morfologiche), il reachability plot e la proiezione PCA rivelano una struttura a cluster complessa ma coerente, che può essere analizzata e interpretata in modo significativo.
+
 ---
+
 ### **Analisi di sensibilità rispetto al parametro ```xi```** ###
 
 Per analizzare il comportamento dell’algoritmo OPTICS su dati reali è stato utilizzato il dataset Penguins, che contiene misure morfologiche di pinguini (lunghezza e profondità del becco, lunghezza della pinna, massa corporea) e il sesso dell’animale.
