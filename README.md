@@ -1,5 +1,5 @@
 # OPTICS 
-Questo progetto, sviluppato per l’insegnamento Principi e Modelli della Percezione (A.A. 2025/2026), ha come obiettivo l’analisi e la visualizzazione della struttura dei cluster presenti in diversi dataset utilizzando l’algoritmo OPTICS (Ordering Points To Identify the Clustering Structure).
+Questo progetto, sviluppato per l’insegnamento Principi e Modelli della Percezione (A.A. 2025/2026), ha come obiettivo l’analisi e la visualizzazione della struttura dei cluster presenti nel dataset "Penguins" utilizzando l’algoritmo OPTICS (Ordering Points To Identify the Clustering Structure).
 
 Il lavoro comprende:
 - utilizzo di tecniche di clustering non supervisionato,
