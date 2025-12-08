@@ -373,6 +373,11 @@ Nel corrispondente grafico PCA 2D i quattro cluster formano insiemi ben separati
 * OPTICS può passare da una descrizione più fine (molti cluster + più rumore) a una più grossolana (pochi cluster grandi + quasi nessun rumore) semplicemente variando ```xi```
 * La scelta di ```xi``` non crea cluster “dal nulla”, ma decide a che livello di dettaglio vogliamo leggere la struttura di densità già presente nei dati
 
+## Osservazione ##
+Sono stati effettuati diversi esperimenti variando tutti i parametri dell’algoritmo, prima con modifiche di piccola entità e poi con cambiamenti più marcati rispetto ai valori iniziali. In tutti i casi, la quantità di punti etichettati come rumore è rimasta elevata, a meno di ridurre la sensibilità del metodo fino a valori tali da rendere i dati quasi uniformi.
+
+Questo indica che il problema non dipende tanto dalla scelta dei parametri, quanto dal fatto che i punti del dataset sono effettivamente molto dispersi nello spazio delle feature.
+
 ---
 Il codice completo utilizzato per l’esperimento è disponibile al seguente link: [penguins_optics.py](penguins_optics.py)
 
