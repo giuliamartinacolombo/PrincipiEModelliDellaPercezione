@@ -430,7 +430,7 @@ I parametri di OPTICS sono gli stessi in entrambi i casi; il cambiamento nel num
 Nel caso morfologico puro (senza quindi considerare il sesso), le differenze tra individui sono distribuite in modo graduale, senza stacchi netti: ne deriva un’elevata quota di outlier. Introducendo una feature che separa gruppi relativamente omogenei (come il sesso in questo dataset) aumenta la densità locale e l’algoritmo riesce a identificare cluster più chiari e interpretabili.
 
 In sintesi, l’esperimento sul dataset Penguins mostra che OPTICS non “inventa” cluster dove la struttura non è supportata dai dati: se lo spazio delle feature non contiene regioni ben separate, l’algoritmo restituisce prevalentemente rumore. Quando invece le feature catturano in modo efficace le differenze tra sottogruppi (in questo caso sesso + misure morfologiche), il reachability plot e la proiezione PCA rivelano una struttura a cluster complessa ma coerente, che può essere analizzata e interpretata in modo significativo.
-
+---
 ### **Analisi di sensibilità rispetto al parametro ```xi```** ###
 
 Per analizzare il comportamento dell’algoritmo OPTICS su dati reali è stato utilizzato il dataset Penguins, che contiene misure morfologiche di pinguini (lunghezza e profondità del becco, lunghezza della pinna, massa corporea) e il sesso dell’animale.
