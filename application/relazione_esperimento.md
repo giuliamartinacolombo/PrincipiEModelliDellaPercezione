@@ -280,14 +280,14 @@ cluster	n_pinguini
 ![histogram](images/histogram.png)
 
 Questa distribuzione è stata anche rappresentata con un istogramma del numero di pinguini per cluster, da cui si vede subito che:
-il cluster 4 è il più ampio (75 individui);
-il rumore (-1) con 141 punti è molto numeroso
-i cluster 0, 1, 2, 3 e 5 hanno quantità più contenute.
+* il cluster 4 è il più ampio (75 individui);
+* il rumore (-1) con 141 punti è molto numeroso
+* i cluster 0, 1, 2, 3 e 5 hanno quantità più contenute.
 
 
 L’istogramma rende visivamente chiaro che:
-OPTICS individua pochi cluster “grandi” (in particolare il 4) e alcuni cluster più piccoli, che rappresentano sottogruppi morfologicamente più specifici;
-Una parte importante del dataset viene comunque etichettata come rumore , ossia punti che non rientrano in regioni abbastanza dense.
+* OPTICS individua pochi cluster “grandi” (in particolare il 4) e alcuni cluster più piccoli, che rappresentano sottogruppi morfologicamente più specifici;
+* Una parte importante del dataset viene comunque etichettata come rumore , ossia punti che non rientrano in regioni abbastanza dense.
 
 Le medie di valori per cluster sono le seguenti:
 
@@ -307,17 +307,14 @@ Dall’analisi dei risultati emerge che:
 
 * cluster 3,4,5 → solo femmine (sex_MALE = 0);
 
-* tra i maschi:
+Tra i maschi:
 
-		- i cluster 1 e 2 hanno il becco più lungo della media, il cluster 2 ha anche valori di massa e lunghezza pinne molto elevati, andando ad evidenziare pinguini “grossi”;
-
-		- il cluster 0 ha il becco relativamente corto ma profondo;
-
+* i cluster 1 e 2 hanno il becco più lungo della media, il cluster 2 ha anche valori di massa e lunghezza pinne molto elevati, andando ad evidenziare pinguini “grossi”;
+* il cluster 0 ha il becco relativamente corto ma profondo;
 
 
-* tra le femmine:
-
-		- il cluster 4 ha valori medi di lunghezza becco, pinna e massa tutti sotto la media. Il tutto coincide con una descrizione di pinguini più piccoli e leggeri;
+Tra le femmine:
+* il cluster 4 ha valori medi di lunghezza becco, pinna e massa tutti sotto la media. Il tutto coincide con una descrizione di pinguini più piccoli e leggeri;
 
 		- il cluster 5 ha massa alta e pinne più lunghe, ma becco meno profondo;
 
